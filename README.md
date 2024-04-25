@@ -9,3 +9,7 @@ and ui is made with [daisyUI](https://daisyui.com/) and [tailwindcss](https://ta
 2. Run npm install
 3. Run npm run dev
 4. Open http://localhost:5173 in browser
+
+## 🤔 Screenshot
+
+![alt text](https://i.imgur.com/08RbSvh.png)
