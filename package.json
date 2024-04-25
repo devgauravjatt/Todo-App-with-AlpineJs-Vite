@@ -1,0 +1,24 @@
+{
+	"name": "todo-app-with-alpinejs-and-vite",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "tsc && vite build",
+		"preview": "vite preview"
+	},
+	"devDependencies": {
+		"@types/alpinejs": "^3.13.10",
+		"autoprefixer": "^10.4.19",
+		"daisyui": "^4.10.2",
+		"postcss": "^8.4.38",
+		"tailwindcss": "^3.4.3",
+		"typescript": "^5.2.2",
+		"vite": "^5.2.0"
+	},
+	"dependencies": {
+		"@alpinejs/collapse": "^3.13.10",
+		"alpinejs": "^3.13.10"
+	}
+}

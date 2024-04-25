@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" type="image/svg+xml" href="/vite.svg" />
+		<!-- boxicons css hare -->
+		<link
+			href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+			rel="stylesheet"
+		/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title x-data="appInfo" x-text="appTitle">this change auto</title>
+	</head>
+	<body
+		class="min-h-screen bg-gray-100 flex flex-col items-center justify-center"
+	>
+		<!-- Todo app content -->
+		<div x-data="tododata" class="py-10 px-4 w-full sm:max-w-md">
+			<h1
+				x-data="appInfo"
+				x-text="appTitle"
+				class="text-2xl font-bold text-green-600 mb-8"
+			></h1>
+			<div class="flex flex-col mb-6">
+				<input
+					x-model="inputText"
+					type="text"
+					placeholder="Type here"
+					class="input input-bordered input-primary py-2 px-4 mb-2"
+				/>
+				<button class="btn btn-accent" x-on:click="addTodo()" type="button">
+					Add
+				</button>
+			</div>
+			<p class="text-center mb-4 text-cyan-800">Todo List:</p>
+			<div class="flex flex-col gap-4">
+				<!-- todo item template with x-for -->
+				<template x-for="(todo, index) in todos" :key="index">
+					<div
+						class="todo-item bg-white rounded-lg shadow-md p-4 flex justify-between"
+					>
+						<p x-text="todo" class="text-xl"></p>
+						<button @click="removeTodo(index)">
+							<i class="bx bxs-message-square-x bx-sm text-red-600"></i>
+						</button>
+					</div>
+				</template>
+			</div>
+			<!--  delete all button with dialog -->
+			<div class="flex justify-center items-center mt-8">
+				<button class="btn bg-red-200 mr-4" onclick="my_modal_1.showModal()">
+					<i class="bx bxs-no-entry"></i>Delete All
+				</button>
+				<dialog id="my_modal_1" class="modal">
+					<div class="modal-box p-4">
+						<p class="py-2 text-red-600">
+							❌ Are you sure you want to delete all todos?
+						</p>
+						<div class="modal-action flex justify-center">
+							<button @click="removeAll()" class="btn bg-red-200 mr-4">
+								<i class="bx bxs-no-entry"></i>Delete All
+							</button>
+							<button class="btn" onclick="my_modal_1.close()">Cancel</button>
+						</div>
+					</div>
+				</dialog>
+			</div>
+		</div>
+
+		<script type="module" src="/src/main.ts"></script>
+	</body>
+</html>
